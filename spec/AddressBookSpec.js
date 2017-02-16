@@ -39,12 +39,18 @@ describe('Address Book',function(){
 
 //test suite of asynchronous code for getting initial contacts
 describe('Async address book',function(){
+	var addressBook = new AddressBook();
 
-	it('should grab initial contacts',function(){
-		var addressBook = new AddressBook();
-
-		addressBook.getInitialContacts();
+	beforeEach(function(done){
+		addressBook.getInitialContacts(function(){
+			done();
+		});
+	});
+	//test running before async function could complete its task ..hence failed test
+	it('should grab initial contacts',function(done){
+		// addressBook.getInitialContacts();
 		expect(addressBook.initialComplete).toBe(true);
+		done();
 	});
 
 });
