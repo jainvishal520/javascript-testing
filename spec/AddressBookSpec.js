@@ -36,3 +36,15 @@ describe('Address Book',function(){
 		expect(addressBook.getContact(0)).not.toBeDefined()
 	});
 });
+
+//test suite of asynchronous code for getting initial contacts
+describe('Async address book',function(){
+
+	it('should grab initial contacts',function(){
+		var addressBook = new AddressBook();
+
+		addressBook.getInitialContacts();
+		expect(addressBook.initialComplete).toBe(true);
+	});
+
+});
